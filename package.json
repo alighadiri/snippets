@@ -1,0 +1,12 @@
+{
+  "name": "price-ticket-scrape",
+  "version": "0.0.1",
+  "description": "Mamo price ticket scraper",
+  "main": "server.js",
+  "author": "Mamo",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "nightmare": "^2.10.0",
+    "emailjs": "^1.0.11"
+  }
+}
