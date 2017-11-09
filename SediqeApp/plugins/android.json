@@ -1,0 +1,21 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "ir.mamo.sediqe"
+        },
+        "cordova-plugin-backbutton": {
+            "PACKAGE_NAME": "ir.mamo.sediqe"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "ir.mamo.sediqe"
+        }
+    },
+    "dependent_plugins": {}
+}

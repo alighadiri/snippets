@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+    <meta charset="UTF8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <title>Hello World</title>
+</head>
+
+<body>
+    <div class="splash">
+        <span>
+            برنامه غذایی و دارویی اختصاصی</span>
+        <h1>صدیقه محمدزاده</h1>
+        <a class="author" href="http://mamo.ir">توسط : محمدرضا یوسف زاده</a>
+    </div>
+    <div class="main">
+        <div id="page-main" class="page page-main main-menu">
+            <ul>
+                <li><a class="link" data-location="page-diet" href="#">برنامه رژیم غذایی</a></li>
+                <li><a class="link" data-location="page-weekly" href="#">برنامه غذایی هفتگی</a></li>
+                <li><a class="link" data-location="page-drugs" href="#">برنامه مصرف داروها</a></li>
+            </ul>
+        </div>
+        <div id="page-diet" class="page">
+            <div class="page-header">
+                <h1 class="subpage-title">
+                برنامه رژیم غذایی
+            </h1>
+                <button class="backbutton toplevel"> بازگشت <strong> &gt </strong> </button>
+            </div>
+            <div class="main-menu">
+                <ul>
+                                        <li><a class="link reverse" data-location="meal7" href="#">نکات مهم</a></li>
+
+                    <li><a class="link" data-location="meal1" href="#">وعده صبحانه</a></li>
+                    <li><a class="link" data-location="meal2" href="#">میان وعده صبحانه و ناهار</a></li>
+                    <li><a class="link" data-location="meal3" href="#">وعده ناهار</a></li>
+                    <li><a class="link" data-location="meal4" href="#">میان وعده ناهار و شام</a></li>
+                    <li><a class="link" data-location="meal5" href="#">وعده شام</a></li>
+                    <li><a class="link" data-location="meal6" href="#">بعد از شام</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="page-weekly" class="page">
+            <div class="page-header">
+                <h1 class="subpage-title">
+                برنامه غذایی هفتگی
+            </h1>
+                <button class="backbutton toplevel"> بازگشت <strong> &gt </strong> </button>
+            </div>
+            <div class="main-menu">
+                <ul>
+                    <li><a class="link" data-location="weekday1" href="#">شنبه</a></li>
+                    <li><a class="link" data-location="weekday2" class="link" data-location="weekday1" href="#">یکشنبه</a></li>
+                    <li><a class="link" data-location="weekday3" href="#">دوشنبه</a></li>
+                    <li><a class="link" data-location="weekday4" href="#">سه شنبه</a></li>
+                    <li><a class="link" data-location="weekday5" href="#">چهارشنبه</a></li>
+                    <li><a class="link" data-location="weekday6" href="#">پنج شنبه</a></li>
+                    <li><a class="link" data-location="weekday7" href="#">جمعه</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="page-drugs" class="page">
+            <div class="page-header">
+                <h1 class="subpage-title">
+                برنامه مصرف داروها
+            </h1>
+                <button class="backbutton toplevel"> بازگشت <strong> &gt </strong> </button>
+            </div>
+            <div class="main-menu">
+                <ul>
+                    <li><a class="link" data-location="drugday1" href="#">شنبه</a></li>
+                    <li><a class="link" data-location="drugday2" class="link" data-location="weekday1" href="#">یکشنبه</a></li>
+                    <li><a class="link" data-location="drugday3" href="#">دوشنبه</a></li>
+                    <li><a class="link" data-location="drugday4" href="#">سه شنبه</a></li>
+                    <li><a class="link" data-location="drugday5" href="#">چهارشنبه</a></li>
+                    <li><a class="link" data-location="drugday6" href="#">پنج شنبه</a></li>
+                    <li><a class="link" data-location="drugday7" href="#">جمعه</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="subpages">
+            <div id="meal1" class="page">
+                <div class="page-header">
+                    <h1 class="subpage-title">               وعده صبحانه            </h1>
+                    <button class="backbutton"> بازگشت <strong> &gt </strong> </button>
+                </div>
+                <div class="page-content">
+                    <p class=" mb-0">اندازه یک قوطی کبریت پنیر کم چرب <span class="text-red">یا</span> یک عدد تخم مرغ کامل آب پز <span class="text-red">یا</span> دو عدد سفیده تخم مرغ آب پز</p>
+                    <span class="plus">+</span>
+                    <p class=" mb-0">2/5 کف دست نان بربری یا سنگک <span class="text-red">یا</span> 10 کف دست نان لواش <strong>(سبوس دار)</strong></p>
+                    <span class="plus">+</span>
+                    <p class=" mb-0">دو عدد گردو</p>
+                    <span class="plus">+</span>
+                    <p>یک عدد خیار + یک عدد گوجه فرنگی</p>
+                </div>
+            </div>
+            <div id="meal2" class="page">
+                <div class="page-header">
+                    <h1 class="subpage-title">              میان وعده صبحانه و ناهار            </h1>
+                    <button class="backbutton"> بازگشت <strong> &gt </strong> </button>
+                </div>
+                <div class="page-content">
+                    <h4>میان وعده اول</h4>
+                    <p class=" mb-0">یک عدد میوه + یک عدد خیار</p>
+                    <span class="plus">+</span>
+                    <h4>بعد از یک ساعت</h4>
+                    <p>یک عدد میوه + یک عدد خیار</p>
+                    * سبزیجات مانند کاهو، کلم، گوجه فرنگی و ... آزاد است.
+                </div>
+            </div>
+            <div id="meal3" class="page">
+                <div class="page-header">
+                    <h1 class="subpage-title">              وعده ناهار           </h1>
+                    <button class="backbutton"> بازگشت <strong> &gt </strong> </button>
+                </div>
+                <div class="page-content">
+                    <h4>قبل از ناهار</h4>
+                    <p class=" mb-0">یک پیاله ماست + یک قاشق تخم شنبلیله + 3 قاشق سبوس جو دوسر
+                    </p>
+                    <span class="plus">+</span>
+                    <h4>غذاهای با برنج</h4>
+                    <p>2/5 کف دست نان سنگک یا بربری <span class="text-red">یا</span> 10 قاشق برنج <span class="text-red">یا</span> 10 کف دست نان لواش
+                        <span class="plus">+</span> 2/5 واحد گوشت یا اندازه 2/5 قوطی کبریت انواع گوشت مانند:
+                        <br> - یک سیخ کباب برگ
+                        <br> - سه چهارم سیخ کباب کوبیده
+                        <br> - 4 تکه جوجه کباب
+                        <br> - 1 عدد ران مرغ
+                        <br> - 0.5 عدد سینه مرغ بدون پوست
+                        <br> - 4 شاشق گوشت چرخ کرده
+                        <br> - 1 کف دست کباب تابه ای
+                        <br>
+                        <span class="text-red">یا</span>
+                        <br> 10 قاشق برنج + نصف لیوان لوبیا سبز پخته + 4 قاشق گوشت چرخ کرده
+                        <br>
+                        <span class="text-red">یا</span>
+                        <br> 6 قاشق برنج + نصف لیوان عدس پخته + 2 شاشق گوشت (عدس پلو)
+                    </p>
+                    <h4>غذاهای خورشتی</h4>
+                    <p>
+                        8 قاشق برنج + 4 قاشق خورشت قرمه سبزی یا قیمه + 2 تکه گوشت خورشتی
+                        <br>
+                        <span class="text-red">یا</span>
+                        <br> 10 قاشق برنج + 6 قاشق خورشت کرفس یا انواع سبزیجات + 2 تکه گوشت خورشتی
+                    </p>
+                    <h4>سایر غذا ها</h4>
+                    <p>
+                        1 عدد کتلت (به اندازه دست) + 2 کف دست نان سنگک یا بربری یا 4 کف دست نان تافتون یا 8 کف دست نان لواش
+                        <br>
+                        <span class="text-red">یا</span>
+                        <br> 2 کف دست نان سنگک + 1 ملاقه آبگوشت + 4 قاشق نخود + 1 تکه گوشت
+                        <br>
+                        <span class="text-red">یا</span>
+                        <br> یک و نیم لیوان عدسی
+                    </p>
+                    <span>* سالاد و سبزی آزاد است</span>
+                </div>
+            </div>
+            <div id="meal4" class="page">
+                <div class="page-header">
+                    <h1 class="subpage-title">               میان وعده ناهار و شام          </h1>
+                    <button class="backbutton"> بازگشت <strong> &gt </strong> </button>
+                </div>
+                <div class="page-content">
+                    <h4>میان وعده اول</h4>
+                    <p class=" mb-0">یک عدد میوه + یک عدد خیار</p>
+                    <span class="plus">+</span>
+                    <h4>بعد از یک ساعت</h4>
+                    <p class=" mb-0">یک عدد میوه + یک عدد خیار</p>
+                    <span class="plus">+</span>
+                    <h4>بعد از یک ساعت</h4>
+                    <p>6 عدد بادام <span class="text-red">یا</span> 5 عدد فندق <span class="text-red">یا</span> 10 عدد زیتون سبز <span class="text-red">یا</span> 20 عدد پسته
+                        <span class="plus">+</span> چای دارچین + 1 عدد عدد بیسکوییت ساقه طلایی در زمان گرسنگی (نصف واحد غلات)
+                    </p>
+                    * سبزیجات مانند کاهو، کلم، گوجه فرنگی و ... آزاد است.
+                </div>
+            </div>
+            <div id="meal5" class="page">
+                <div class="page-header">
+                    <h1 class="subpage-title">             وعده شام         </h1>
+                    <button class="backbutton"> بازگشت <strong> &gt </strong> </button>
+                </div>
+                <div class="page-content">
+                    <h4>قبل از شام</h4>
+                    <p class=" mb-0">یک پیاله ماست + یک قاشق تخم شنبلیله + 3 قاشق سبوس جو دوسر
+                    </p>
+                    <span class="plus">+</span>
+                    <h4>غذاهای با نان</h4>
+                    <p>
+                        2/5 کف دست نان بربری یا سنگک <span class="text-red">یا</span> 10 کف دست نان لواش + اندازه 2 قوطی کبریت پنیر
+                        <br>
+                        <span class="text-red">یا</span>
+                        <br> 1/5 کف دست نان سنگک یا بربری <span class="text-red">یا</span> 6 کف دست لواش
+                        <span class="plus">+</span> 1 بشقاب سوپ
+                        <br>
+                        <span class="text-red">یا</span>
+                        <br> 2 عدد تخم مرغ
+                    </p>
+                    <h4>غذاهای بدون نان</h4>
+                    <p>
+                        1 پیاله لوبیا چیتی
+                        <br>
+                        <span class="text-red">یا</span>
+                        <br> 1 لیوان عدسی
+                    </p>
+                    * سبزی خوردن آزاد یا خیار با گوجه فرنگی
+                </div>
+            </div>
+            <div id="meal6" class="page">
+                <div class="page-header">
+                    <h1 class="subpage-title">             بعد از شام            </h1>
+                    <button class="backbutton"> بازگشت <strong> &gt </strong> </button>
+                </div>
+                <div class="page-content">
+                    <h4>میان وعده بعد از شام</h4>
+                    <p class=" mb-0">
+                        یک لیوان شیر ولرم
+                    </p>
+                    <span class="plus">+</span>
+                    <h4>بعد از مقداری فاصله</h4>
+                    <p class=" mb-0">
+                        1 واحد غلات
+                    </p>
+                </div>
+            </div>
+            <div id="meal7" class="page">
+                <div class="page-header">
+                    <h1 class="subpage-title">             نکات مهم            </h1>
+                    <button class="backbutton"> بازگشت <strong> &gt </strong> </button>
+                </div>
+                <div class="page-content">
+                    <p class="mb-0">
+                        - استفاده از حداقل 8 لیوان آب به همراه لیموترش در روز
+                    </p>
+                    <p class="mb-0">
+                        - میوه های با قند بالا و ممنوع: آناناس ، کشمش، طالبی، خربزه، هندوانه، انگور، موز، لیموشیرین</p>
+                    <p class="mb-0">
+                        - همراه هر میوه یک سبزی مثل خیار یا کرفس یا کاهو میل کنید</p>
+                    <p class="mb-0">
+                        - آبمیوه و آب هویج ممنوع می باشد</p>
+                    <p class="mb-0">
+                        - هرگز خود را گرسنه نگه ندارید و در زمان گرسنگی مصرف انواع سبزیجات آزاد است.</p>
+                    <p class="mb-0">
+                        - سیب زمینی ممنوع است</p>
+                    <p class="mb-0">
+                        - استفاده از چای دارچین</p>
+                    <p class="mb-0">
+                        - استفاده از عرق بوقناق 1 فنجان بعد از ناهار
+                    </p>
+                </div>
+            </div>
+            <div id="weekday1" class="page">
+                <div class="page-header">
+                    <h1 class="subpage-title">               برنامه غذایی روز شنبه            </h1>
+                    <button class="backbutton"> بازگشت <strong> &gt </strong> </button>
+                </div>
+                <div class="page-content">
+                </div>
+            </div>
+            <div id="weekday2" class="page">
+                <div class="page-header">
+                    <h1 class="subpage-title">               برنامه غذایی روز یکشنبه            </h1>
+                    <button class="backbutton"> بازگشت <strong> &gt </strong> </button>
+                </div>
+                <div class="page-content">
+                </div>
+            </div>
+            <div id="weekday3" class="page">
+                <div class="page-header">
+                    <h1 class="subpage-title">               برنامه غذایی روز دوشنبه          </h1>
+                    <button class="backbutton"> بازگشت <strong> &gt </strong> </button>
+                </div>
+                <div class="page-content">
+                </div>
+            </div>
+            <div id="weekday4" class="page">
+                <div class="page-header">
+                    <h1 class="subpage-title">               برنامه غذایی روز سه شنبه            </h1>
+                    <button class="backbutton"> بازگشت <strong> &gt </strong> </button>
+                </div>
+                <div class="page-content">
+                </div>
+            </div>
+            <div id="weekday5" class="page">
+                <div class="page-header">
+                    <h1 class="subpage-title">               برنامه غذایی روز چهارشنبه            </h1>
+                    <button class="backbutton"> بازگشت <strong> &gt </strong> </button>
+                </div>
+                <div class="page-content">
+                </div>
+            </div>
+            <div id="weekday6" class="page">
+                <div class="page-header">
+                    <h1 class="subpage-title">               برنامه غذایی روز پنج شنبه           </h1>
+                    <button class="backbutton"> بازگشت <strong> &gt </strong> </button>
+                </div>
+                <div class="page-content">
+                </div>
+            </div>
+            <div id="weekday7" class="page">
+                <div class="page-header">
+                    <h1 class="subpage-title">               برنامه غذایی روز جمعه            </h1>
+                    <button class="backbutton"> بازگشت <strong> &gt </strong> </button>
+                </div>
+                <div class="page-content">
+                </div>
+            </div>
+            <div id="drugday1" class="page">
+                <div class="page-header">
+                    <h1 class="subpage-title">               برنامه داروهای روز شنبه            </h1>
+                    <button class="backbutton"> بازگشت <strong> &gt </strong> </button>
+                </div>
+                <div class="page-content">
+                    <h4>ساعت 8 صبح (هر هشت ساعت یکبار)</h4>
+                    <p>آپو - متفورمین</p>
+                    <h4>قبل از صبحانه</h4>
+                    <p>گلی کلازید 80</p>
+                    <h4>2 ساعت بعد از ناهار</h4>
+                    <p>هماتینیک</p>
+                    <h4>ساعت 4 بعد از ظهر (هر هشت ساعت یکبار)</h4>
+                    <p>آپو - متفورمین</p>
+                    <h4>ساعت 6 بعد از ظهر</h4>
+                    <p>پیوگلیتازون</p>
+                    <h4>ساعت 12 شب (هر هشت ساعت یکبار)</h4>
+                    <p>آپو - متفورمین</p>
+                    <h4>قبل از خواب </h4>
+                    <p>رزوواستاتین</p>
+                </div>
+            </div>
+            <div id="drugday2" class="page">
+                <div class="page-header">
+                    <h1 class="subpage-title">               برنامه داروهای روز یکشنبه            </h1>
+                    <button class="backbutton"> بازگشت <strong> &gt </strong> </button>
+                </div>
+                <div class="page-content">
+                    <h4>ساعت 8 صبح (هر هشت ساعت یکبار)</h4>
+                    <p>آپو - متفورمین</p>
+                    <h4>قبل از صبحانه</h4>
+                    <p>گلی کلازید 80</p>
+                    <h4>2 ساعت بعد از ناهار</h4>
+                    <p>هماتینیک</p>
+                    <h4>ساعت 4 بعد از ظهر (هر هشت ساعت یکبار)</h4>
+                    <p>آپو - متفورمین</p>
+                    <h4>ساعت 6 بعد از ظهر</h4>
+                    <p>پیوگلیتازون</p>
+                    <h4>ساعت 12 شب (هر هشت ساعت یکبار)</h4>
+                    <p>آپو - متفورمین</p>
+                    <h4>قبل از خواب </h4>
+                    <p>رزوواستاتین</p>
+                </div>
+            </div>
+            <div id="drugday3" class="page">
+                <div class="page-header">
+                    <h1 class="subpage-title">               برنامه داروهای روز دوشنبه          </h1>
+                    <button class="backbutton"> بازگشت <strong> &gt </strong> </button>
+                </div>
+                <div class="page-content">
+                    <h4>ساعت 8 صبح (هر هشت ساعت یکبار)</h4>
+                    <p>آپو - متفورمین</p>
+                    <h4>قبل از صبحانه</h4>
+                    <p>گلی کلازید 80</p>
+                    <h4> ساعت 12 ظهر</h4>
+                    <p>د-ویتین</p>
+                    <h4>2 ساعت بعد از ناهار</h4>
+                    <p>هماتینیک</p>
+                    <h4>ساعت 4 بعد از ظهر (هر هشت ساعت یکبار)</h4>
+                    <p>آپو - متفورمین</p>
+                    <h4>ساعت 6 بعد از ظهر</h4>
+                    <p>پیوگلیتازون</p>
+                    <h4>ساعت 12 شب (هر هشت ساعت یکبار)</h4>
+                    <p>آپو - متفورمین</p>
+                    <h4>قبل از خواب </h4>
+                    <p>رزوواستاتین</p>
+                </div>
+            </div>
+            <div id="drugday4" class="page">
+                <div class="page-header">
+                    <h1 class="subpage-title">               برنامه داروهای روز سه شنبه            </h1>
+                    <button class="backbutton"> بازگشت <strong> &gt </strong> </button>
+                </div>
+                <div class="page-content">
+                    <h4>ساعت 8 صبح (هر هشت ساعت یکبار)</h4>
+                    <p>آپو - متفورمین</p>
+                    <h4>قبل از صبحانه</h4>
+                    <p>گلی کلازید 80</p>
+                    <h4>2 ساعت بعد از ناهار</h4>
+                    <p>هماتینیک</p>
+                    <h4>ساعت 4 بعد از ظهر (هر هشت ساعت یکبار)</h4>
+                    <p>آپو - متفورمین</p>
+                    <h4>ساعت 6 بعد از ظهر</h4>
+                    <p>پیوگلیتازون</p>
+                    <h4>ساعت 12 شب (هر هشت ساعت یکبار)</h4>
+                    <p>آپو - متفورمین</p>
+                    <h4>قبل از خواب </h4>
+                    <p>رزوواستاتین</p>
+                </div>
+            </div>
+            <div id="drugday5" class="page">
+                <div class="page-header">
+                    <h1 class="subpage-title">               برنامه داروهای روز چهارشنبه            </h1>
+                    <button class="backbutton"> بازگشت <strong> &gt </strong> </button>
+                </div>
+                <div class="page-content">
+                    <h4>ساعت 8 صبح (هر هشت ساعت یکبار)</h4>
+                    <p>آپو - متفورمین</p>
+                    <h4>قبل از صبحانه</h4>
+                    <p>گلی کلازید 80</p>
+                    <h4>2 ساعت بعد از ناهار</h4>
+                    <p>هماتینیک</p>
+                    <h4>ساعت 4 بعد از ظهر (هر هشت ساعت یکبار)</h4>
+                    <p>آپو - متفورمین</p>
+                    <h4>ساعت 6 بعد از ظهر</h4>
+                    <p>پیوگلیتازون</p>
+                    <h4>ساعت 12 شب (هر هشت ساعت یکبار)</h4>
+                    <p>آپو - متفورمین</p>
+                    <h4>قبل از خواب </h4>
+                    <p>رزوواستاتین</p>
+                </div>
+            </div>
+            <div id="drugday6" class="page">
+                <div class="page-header">
+                    <h1 class="subpage-title">               برنامه داروهای روز پنج شنبه           </h1>
+                    <button class="backbutton"> بازگشت <strong> &gt </strong> </button>
+                </div>
+                <div class="page-content">
+                    <h4>ساعت 8 صبح (هر هشت ساعت یکبار)</h4>
+                    <p>آپو - متفورمین</p>
+                    <h4>قبل از صبحانه</h4>
+                    <p>گلی کلازید 80</p>
+                    <h4>2 ساعت بعد از ناهار</h4>
+                    <p>هماتینیک</p>
+                    <h4>ساعت 4 بعد از ظهر (هر هشت ساعت یکبار)</h4>
+                    <p>آپو - متفورمین</p>
+                    <h4>ساعت 6 بعد از ظهر</h4>
+                    <p>پیوگلیتازون</p>
+                    <h4>ساعت 12 شب (هر هشت ساعت یکبار)</h4>
+                    <p>آپو - متفورمین</p>
+                    <h4>قبل از خواب </h4>
+                    <p>رزوواستاتین</p>
+                </div>
+            </div>
+            <div id="drugday7" class="page">
+                <div class="page-header">
+                    <h1 class="subpage-title">               برنامه داروهای روز جمعه            </h1>
+                    <button class="backbutton"> بازگشت <strong> &gt </strong> </button>
+                </div>
+                <div class="page-content">
+                    <h4>ساعت 8 صبح (هر هشت ساعت یکبار)</h4>
+                    <p>آپو - متفورمین</p>
+                    <h4>قبل از صبحانه</h4>
+                    <p>گلی کلازید 80</p>
+                    <h4>2 ساعت بعد از ناهار</h4>
+                    <p>هماتینیک</p>
+                    <h4>ساعت 4 بعد از ظهر (هر هشت ساعت یکبار)</h4>
+                    <p>آپو - متفورمین</p>
+                    <h4>ساعت 6 بعد از ظهر</h4>
+                    <p>پیوگلیتازون</p>
+                    <h4>ساعت 12 شب (هر هشت ساعت یکبار)</h4>
+                    <p>آپو - متفورمین</p>
+                    <h4>قبل از خواب </h4>
+                    <p>رزوواستاتین</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+
+</html>
