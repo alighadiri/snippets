@@ -1,0 +1,244 @@
+<!doctype html>
+<html class="no-js" lang="" ng-app="generatorApp">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>email generator</title>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Place favicon.ico in the root directory -->
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="/bower_components/froala-wysiwyg-editor/css/froala_editor.min.css" />
+  <link rel="stylesheet" href="/bower_components/froala-wysiwyg-editor/css/froala_editor.pkgd.min.css" />
+  <link rel="stylesheet" href="/bower_components/froala-wysiwyg-editor/css/froala_style.min.css" />
+  <link rel="stylesheet" href="/bower_components/froala-wysiwyg-editor/css/plugins/char_counter.min.css" />
+  <link rel="stylesheet" href="/bower_components/froala-wysiwyg-editor/css/plugins/code_view.min.css" />
+  <link rel="stylesheet" href="/bower_components/froala-wysiwyg-editor/css/plugins/colors.min.css" />
+  <link rel="stylesheet" href="/bower_components/froala-wysiwyg-editor/css/plugins/draggable.min.css" />
+  <link rel="stylesheet" href="/bower_components/froala-wysiwyg-editor/css/plugins/emoticons.min.css" />
+  <link rel="stylesheet" href="/bower_components/froala-wysiwyg-editor/css/plugins/file.min.css" />
+  <link rel="stylesheet" href="/bower_components/froala-wysiwyg-editor/css/plugins/fullscreen.min.css" />
+  <link rel="stylesheet" href="/bower_components/froala-wysiwyg-editor/css/plugins/help.min.css" />
+  <link rel="stylesheet" href="/bower_components/froala-wysiwyg-editor/css/plugins/image_manager.min.css" />
+  <link rel="stylesheet" href="/bower_components/froala-wysiwyg-editor/css/plugins/image.min.css" />
+  <link rel="stylesheet" href="/bower_components/froala-wysiwyg-editor/css/plugins/line_breaker.min.css" />
+  <link rel="stylesheet" href="/bower_components/froala-wysiwyg-editor/css/plugins/quick_insert.min.css" />
+  <link rel="stylesheet" href="/bower_components/froala-wysiwyg-editor/css/plugins/special_characters.min.css" />
+  <link rel="stylesheet" href="/bower_components/froala-wysiwyg-editor/css/plugins/table.min.css" />
+  <link rel="stylesheet" href="/bower_components/froala-wysiwyg-editor/css/plugins/video.min.css" />
+  <link rel="stylesheet" href="/bower_components/froala-wysiwyg-editor/css/third_party/embedly.min.css" />
+  <link rel="stylesheet" href="/bower_components/froala-wysiwyg-editor/css/third_party/spell_checker.min.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+  <!-- build:js scripts/vendor/modernizr.js -->
+  <script src="/bower_components/modernizr/modernizr.js"></script>
+  <!-- endbuild -->
+</head>
+
+<body ng-controller="mainCtrl">
+  <!--[if IE]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+  <div class="container">
+    <div class="panel  panel-default">
+      <div class="panel-heading">
+        Company Logo
+      </div>
+      <div class="panel-body">
+        <p>Upload company logo according to instruction below:</p>
+        <ul>
+          <li>Company logo should be square (1:1)</li>
+          <li>Company logo should be in PNG format</li>
+          <li>The background should be transparent</li>
+        </ul>
+        <div class="form-group">
+          <input ng-model="logo" type="file" class="form-control" ng-file-select="onFileSelect($files)">
+          <img ng-if="logo" style="margin-top: 20px;" class="img-thumbnail" src="{{logo}}"/>
+        </div>
+      </div>
+    </div>
+    <div class="panel  panel-default">
+      <div class="panel-heading">
+        Company Name
+      </div>
+      <div class="panel-body">
+        <p><i>It will appear as "Company Name" IS HIRING</i></p>
+        <div class="form-group">
+          <input ng-model="company" placeholder="Example: SkootJobs" type="text" class="form-control">
+        </div>
+      </div>
+    </div>
+    <div class="panel  panel-default">
+      <div class="panel-heading">
+        Listing URL
+      </div>
+      <div class="panel-body">
+        <p>Enter the listing url on SkootJobs</p>
+        <div class="form-group">
+          <input ng-model="jobUrl" placeholder="Exmaple: https://www.skootjobs.com/job/59eb92126c6643ccdb059df0/waiter-waitress-at-the-oasis-hotel" type="text" class="form-control">
+        </div>
+      </div>
+    </div>
+    <div class="panel  panel-default">
+      <div class="panel-heading">
+        About Company
+      </div>
+      <div class="panel-body">
+        <div class="form-group">
+          <textarea ng-model="about" id="about"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="panel  panel-default">
+      <div class="panel-heading">
+        Listing Card Details
+      </div>
+      <div class="panel-body">
+        <div class="form-group">
+          <label>Job Title</label>
+          <input ng-model="jobTitle" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Business Name</label>
+          <input ng-model="businessName" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Location</label>
+          <input ng-model="location" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Salary</label>
+          <input ng-model="salary" type="text" class="form-control">
+        </div>
+      </div>
+    </div>
+    <div class="panel  panel-default">
+      <div class="panel-heading">
+        Job Benefits
+      </div>
+      <div class="panel-body">
+        <p>Select Job Benefits:</p>
+        <div class="form-group">
+          <label class="col-xs-6">
+            
+            <input type="checkbox" ng-true-value="'Company trips'" ng-model="benefits.benefit1" > Company trips</label>
+          <label class="col-xs-6">
+            <input type="checkbox" ng-true-value="'Gym/fitness'" ng-model="benefits.benefit2" > Gym/fitness memberships</label>
+          <label class="col-xs-6">
+            <input type="checkbox" ng-true-value="'Medical insurance'" ng-model="benefits.benefit3" > Medical insurance</label>
+          <label class="col-xs-6">
+            <input type="checkbox" ng-true-value="'Parking allowance'" ng-model="benefits.benefit4" > Parking allowance</label>
+          <label class="col-xs-6">
+            <input type="checkbox" ng-true-value="'Pension scheme'" ng-model="benefits.benefit5" > Pension scheme</label>
+          <label class="col-xs-6">
+            <input type="checkbox" ng-true-value="'Team building activities'" ng-model="benefits.benefit6" > Team building activities</label>
+          <label class="col-xs-6">
+            <input type="checkbox" ng-true-value="'Training'" ng-model="benefits.benefit7" > Training</label>
+          <div class="clearfix"></div>
+        </div>
+        <!-- <div class="form-group">
+          <p>Enter Additional Job Benefits:</p>
+          <div class="row">
+            <div class="col-xs-10">
+              <input type="text" class="form-control">
+            </div>
+            <div class="col-xs-2">
+              <button class="btn btn-md btn-block btn-primary">Add</button>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <button  ng-click="saveFile()" ng-href="{{finalTemplate}}" class="btn btn-block btn-lg btn-success">Generate Email Template</button>
+    <a id="saveFile">  </a>
+  </div>
+
+
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+  <script>
+  (function(b, o, i, l, e, r) {
+    b.GoogleAnalyticsObject = l;
+    b[l] || (b[l] =
+      function() {
+        (b[l].q = b[l].q || []).push(arguments)
+      });
+    b[l].l = +new Date;
+    e = o.createElement(i);
+    r = o.getElementsByTagName(i)[0];
+    e.src = 'https://www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e, r)
+  }(window, document, 'script', 'ga'));
+  ga('create', 'UA-XXXXX-X');
+  ga('send', 'pageview');
+
+  </script>
+  <!-- build:js scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/bower_components/modernizr/modernizr.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/froala_editor.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/froala_editor.pkgd.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/plugins/align.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/plugins/char_counter.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/plugins/code_beautifier.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/plugins/code_view.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/plugins/colors.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/plugins/draggable.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/plugins/emoticons.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/plugins/entities.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/plugins/file.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/plugins/font_family.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/plugins/font_size.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/plugins/fullscreen.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/plugins/help.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/plugins/image.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/plugins/image_manager.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/plugins/inline_style.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/plugins/line_breaker.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/plugins/link.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/plugins/lists.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/plugins/paragraph_format.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/plugins/paragraph_style.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/plugins/print.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/plugins/quick_insert.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/plugins/quote.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/plugins/save.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/plugins/special_characters.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/plugins/table.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/plugins/url.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/plugins/video.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/plugins/word_paste.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/third_party/embedly.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/third_party/image_aviary.min.js"></script>
+  <script src="/bower_components/froala-wysiwyg-editor/js/third_party/spell_checker.min.js"></script>
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/html2canvas/build/html2canvas.js"></script>
+  <script src="/bower_components/angular-base64/angular-base64.js"></script>
+  <script src="/bower_components/canvas2image/canvas2image/canvas2image.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:js scripts/plugins.js -->
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
+  <!-- endbuild -->
+  <!-- build:js scripts/main.js -->
+  <script src="scripts/main.js"></script>
+  <!-- endbuild -->
+</body>
+
+</html>

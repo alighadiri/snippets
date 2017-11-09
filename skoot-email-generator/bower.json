@@ -1,0 +1,22 @@
+{
+  "name": "email-generator",
+  "private": true,
+  "dependencies": {
+    "bootstrap-sass": "~3.3.5",
+    "modernizr": "~2.8.1",
+    "froala-wysiwyg-editor": "^2.7.1",
+    "angular": "^1.6.6",
+    "html2canvas": "^0.4.1",
+    "angular-base64": "^2.0.5",
+    "canvas2image": "bower-canvas2image#^0.0.1"
+  },
+  "overrides": {
+    "bootstrap-sass": {
+      "main": [
+        "assets/stylesheets/_bootstrap.scss",
+        "assets/fonts/bootstrap/*",
+        "assets/javascripts/bootstrap.js"
+      ]
+    }
+  }
+}
