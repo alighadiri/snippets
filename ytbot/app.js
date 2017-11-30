@@ -22,8 +22,9 @@ api.on('message', function(message) {
             text: 'Downloading. Please Wait...'
 
         });
-        ytdl.getInfo(url, {}, function(err, info) {
-            var filename = info.title + '.mp4';
+        ytdl.getInfo(url, { filter: (format) => format.itag === '18' }, function(err, info) {
+            var filename = info.title+ Math.floor(100000 + Math.random() * 900000) + '.mp4';
+
             if (filename) {
                 var output = path.resolve(__dirname, filename);
                 var video = ytdl(url);
