@@ -32,7 +32,12 @@ api.on('message', function(message) {
                     console.log('DONE!');
                     api.sendVideo({
                         chat_id: message.chat.id,
-                        video: filename
+                        video: filename,
+                        width:640,
+                        height:360,
+                        duration: info.length_seconds,
+                        caption: info.title,
+                        reply_to_message_id: message.message_id
                     });
                 });
             }
