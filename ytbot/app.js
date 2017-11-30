@@ -16,14 +16,14 @@ api.on('message', function(message) {
     // Received text message
     var url = message.text;
     if (ytdl.validateURL(url)) {
-    	api.sendMessage({
+        api.sendMessage({
             chat_id: message.chat.id,
             parse_mode: 'Markdown',
             text: 'Downloading. Please Wait...'
 
         });
         ytdl.getInfo(url, { filter: (format) => format.itag === '18' }, function(err, info) {
-            var filename = info.title+ Math.floor(100000 + Math.random() * 900000) + '.mp4';
+            var filename = info.title + Math.floor(100000 + Math.random() * 900000) + '.mp4';
 
             if (filename) {
                 var output = path.resolve(__dirname, filename);
@@ -31,11 +31,15 @@ api.on('message', function(message) {
                 video.pipe(fs.createWriteStream(output));
                 video.on('end', () => {
                     console.log('DONE!');
+                    api.sendMessage({
+                        chat_id: message.chat.id,
+                        parse_mode: 'Markdown',
+                        text: 'Video has been saved successfully. Uploading to Telegram. Please wait...'
+
+                    });
                     api.sendVideo({
                         chat_id: message.chat.id,
                         video: filename,
-                        width:640,
-                        height:360,
                         duration: info.length_seconds,
                         caption: info.title,
                         reply_to_message_id: message.message_id
