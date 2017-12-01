@@ -84,7 +84,7 @@ api.on('message', function(message) {
                 var part2 = sync('ffmpeg', ['-ss', '14', '-i', 'out.mp4', '-t', '15', '-c', 'copy', 'part2.mp4']);
                 var part3 = sync('ffmpeg', ['-ss', '29', '-i', 'out.mp4', '-t', '15', '-c', 'copy', 'part3.mp4']);
                 var part4 = sync('ffmpeg', ['-ss', '44', '-i', 'out.mp4', '-t', '15', '-c', 'copy', 'part4.mp4']);
-                var send = function() {
+                function send(){
                     api.sendVideo({
                         chat_id: message.chat.id,
                         video: 'part1.mp4',
