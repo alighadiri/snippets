@@ -77,11 +77,9 @@ api.on('message', function(message) {
                 }
                 mainaudio = audio_filename;
 
-                download(audio_url, audio_options, function(err, res) {});
-
-                console.log('photo is:', mainphoto);
-                console.log('audio is:', mainaudio);
-                var ls = sync('ffmpeg', ['-loop', '1', '-i', mainphoto, '-i', mainaudio, '-c:v', 'libx264', '-t', '60', '-pix_fmt', 'yuv420p', '-vf', 'scale=566:1080', '-y', 'out.mp4']);
+                download(audio_url, audio_options, function(err, res) {
+                    if(res){
+                        var ls = sync('ffmpeg', ['-loop', '1', '-i', mainphoto, '-i', mainaudio, '-c:v', 'libx264', '-t', '60', '-pix_fmt', 'yuv420p', '-vf', 'scale=566:1080', '-y', 'out.mp4']);
                 var part1 = sync('ffmpeg', ['-ss', '0', '-i', 'out.mp4', '-t', '15', '-c', 'copy', 'part1.mp4']);
                 var part2 = sync('ffmpeg', ['-ss', '14', '-i', 'out.mp4', '-t', '15', '-c', 'copy', 'part2.mp4']);
                 var part3 = sync('ffmpeg', ['-ss', '29', '-i', 'out.mp4', '-t', '15', '-c', 'copy', 'part3.mp4']);
@@ -124,8 +122,13 @@ api.on('message', function(message) {
 
                     });
                 };
-                send();
-                step = 1;
+                send(); 
+                    }
+                });
+
+                console.log('photo is:', mainphoto);
+                console.log('audio is:', mainaudio);
+               
             });
         } else {
             api.sendMessage({
