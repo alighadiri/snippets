@@ -15,6 +15,7 @@
   "dependencies": {
     "download-file": "^0.1.5",
     "ffmpeg": "0.0.4",
+    "file-extension": "^3.1.2",
     "fs": "0.0.1-security",
     "randomstring": "^1.1.5",
     "telegram-bot-api": "^1.2.0"
