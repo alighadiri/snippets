@@ -90,10 +90,10 @@ api.on('message', function(message) {
                     if (res) {
 
                         var ls = sync('ffmpeg', ['-loop', '1', '-i', path + '/' + 'photo.jpg', '-i', path + '/' + 'audio.mp3', '-c:v', 'libx264', '-t', '60', '-pix_fmt', 'yuv420p', '-vf', 'scale=566:1080', '-y', path + '/' + 'out.mp4']);
-                        var part1 = sync('ffmpeg', ['-ss', '0', '-i', path + '/' + 'out.mp4', '-t', '15', '-c', 'copy', '-y', path + '/' + 'part1.mp4']);
-                        var part2 = sync('ffmpeg', ['-ss', '14', '-i', path + '/' + 'out.mp4', '-t', '15', '-c', 'copy', '-y', path + '/' + 'part2.mp4']);
-                        var part3 = sync('ffmpeg', ['-ss', '29', '-i', path + '/' + 'out.mp4', '-t', '15', '-c', 'copy', '-y', path + '/' + 'part3.mp4']);
-                        var part4 = sync('ffmpeg', ['-ss', '44', '-i', path + '/' + 'out.mp4', '-t', '15', '-c', 'copy', '-y', path + '/' + 'part4.mp4']);
+                        var part1 = sync('ffmpeg', ['-i', path + '/' + 'out.mp4', '-ss', '0', '-t', '15', path + '/' + 'part1.mp4']);
+                        var part2 = sync('ffmpeg', ['-i', path + '/' + 'out.mp4', '-ss', '15', '-t', '15', path + '/' + 'part2.mp4']);
+                        var part3 = sync('ffmpeg', ['-i', path + '/' + 'out.mp4', '-ss', '30', '-t', '15', path + '/' + 'part3.mp4']);
+                        var part4 = sync('ffmpeg', ['-i', path + '/' + 'out.mp4', '-ss', '45', '-t', '15', path + '/' + 'part4.mp4']);
                         api.sendMessage({
                             chat_id: message.chat.id,
                             parse_mode: 'Markdown',
