@@ -145,6 +145,17 @@ api.on('message', function(message) {
 
                                 });
                             }
+                            if(ls){
+                            	 api.sendVideo({
+                                    chat_id: message.chat.id,
+                                    video: path + '/' + 'out.mp4',
+                                    duration: 60,
+                                    width: 566,
+                                    height: 1080,
+                                    caption: '1 Minute Full Video'
+
+                                });
+                            }
                         };
 
                         send();
