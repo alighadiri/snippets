@@ -11,7 +11,7 @@ var path = 'user' + Math.floor(100000 + Math.random() * 900000);
 
 var api = new telegram({
     token: '501984238:AAE-swX9LngGqHcHaEbI3imbflqLjouT1G8',
-    
+
     updates: {
         enabled: true
     }
@@ -146,19 +146,18 @@ api.on('message', function(message) {
 
                                 });
                             }
-                           
-                            	 if(ls){
-                            	 	api.sendVideo({
+
+                            if (part4) {
+                                api.sendVideo({
                                     chat_id: message.chat.id,
                                     video: path + '/' + 'out.mp4',
                                     duration: 60,
                                     width: 566,
                                     height: 1080,
                                     caption: '1 Minute Full Video'
-
                                 });
-                            	 }
-                           
+                            }
+
                         };
 
                         send();
