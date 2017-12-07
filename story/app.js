@@ -10,7 +10,8 @@ var path = 'user' + Math.floor(100000 + Math.random() * 900000);
 //var path = '';
 
 var api = new telegram({
-    token: '501984238:AAHmwyJPBFWqPeSxFXC5tS53auN58MjN7i0',
+    token: '501984238:AAE-swX9LngGqHcHaEbI3imbflqLjouT1G8',
+    
     updates: {
         enabled: true
     }
@@ -44,7 +45,7 @@ api.on('message', function(message) {
                     text: 'Now Send an Audio'
 
                 });
-                var url = 'https://api.telegram.org/file/bot501984238:AAHmwyJPBFWqPeSxFXC5tS53auN58MjN7i0/' + data.file_path;
+                var url = 'https://api.telegram.org/file/bot501984238:AAE-swX9LngGqHcHaEbI3imbflqLjouT1G8/' + data.file_path;
                 var options = {
                     directory: "./" + path,
                     filename: "photo." + fileExtension(data.file_path.replace('photos/', ''))
@@ -78,7 +79,7 @@ api.on('message', function(message) {
                     text: 'Okay! Please Wait...'
 
                 });
-                var audio_url = 'https://api.telegram.org/file/bot501984238:AAHmwyJPBFWqPeSxFXC5tS53auN58MjN7i0/' + data.file_path;
+                var audio_url = 'https://api.telegram.org/file/bot501984238:AAE-swX9LngGqHcHaEbI3imbflqLjouT1G8/' + data.file_path;
 
                 var audio_options = {
                     directory: "./" + path,
@@ -90,10 +91,10 @@ api.on('message', function(message) {
                     if (res) {
 
                         var ls = sync('ffmpeg', ['-loop', '1', '-i', path + '/' + 'photo.jpg', '-i', path + '/' + 'audio.mp3', '-c:v', 'libx264', '-t', '60', '-pix_fmt', 'yuv420p', '-vf', 'scale=566:1080', '-y', path + '/' + 'out.mp4']);
-                        var part1 = sync('ffmpeg', ['-i', path + '/' + 'out.mp4', '-ss', '0', '-t', '15', path + '/' + 'part1.mp4']);
-                        var part2 = sync('ffmpeg', ['-i', path + '/' + 'out.mp4', '-ss', '15', '-t', '15', path + '/' + 'part2.mp4']);
-                        var part3 = sync('ffmpeg', ['-i', path + '/' + 'out.mp4', '-ss', '30', '-t', '15', path + '/' + 'part3.mp4']);
-                        var part4 = sync('ffmpeg', ['-i', path + '/' + 'out.mp4', '-ss', '45', '-t', '15', path + '/' + 'part4.mp4']);
+                        // var part1 = sync('ffmpeg', ['-i', path + '/' + 'out.mp4', '-ss', '0', '-t', '15', path + '/' + 'part1.mp4']);
+                        // var part2 = sync('ffmpeg', ['-i', path + '/' + 'out.mp4', '-ss', '15', '-t', '15', path + '/' + 'part2.mp4']);
+                        // var part3 = sync('ffmpeg', ['-i', path + '/' + 'out.mp4', '-ss', '30', '-t', '15', path + '/' + 'part3.mp4']);
+                        // var part4 = sync('ffmpeg', ['-i', path + '/' + 'out.mp4', '-ss', '45', '-t', '15', path + '/' + 'part4.mp4']);
                         api.sendMessage({
                             chat_id: message.chat.id,
                             parse_mode: 'Markdown',
@@ -101,52 +102,53 @@ api.on('message', function(message) {
                         });
 
                         var send = function() {
-                            if (part1) {
-                                api.sendVideo({
-                                    chat_id: message.chat.id,
-                                    video: path + '/' + 'part1.mp4',
-                                    duration: 15,
-                                    width: 566,
-                                    height: 1080,
-                                    caption: 'Part 1'
+                            // if (part1) {
+                            //     api.sendVideo({
+                            //         chat_id: message.chat.id,
+                            //         video: path + '/' + 'part1.mp4',
+                            //         duration: 15,
+                            //         width: 566,
+                            //         height: 1080,
+                            //         caption: 'Part 1'
 
-                                });
-                            }
-                            if (part2) {
-                                api.sendVideo({
-                                    chat_id: message.chat.id,
-                                    video: path + '/' + 'part2.mp4',
-                                    duration: 15,
-                                    width: 566,
-                                    height: 1080,
-                                    caption: 'Part 2'
+                            //     });
+                            // }
+                            // if (part2) {
+                            //     api.sendVideo({
+                            //         chat_id: message.chat.id,
+                            //         video: path + '/' + 'part2.mp4',
+                            //         duration: 15,
+                            //         width: 566,
+                            //         height: 1080,
+                            //         caption: 'Part 2'
 
-                                });
-                            }
-                            if (part3) {
-                                api.sendVideo({
-                                    chat_id: message.chat.id,
-                                    video: path + '/' + 'part3.mp4',
-                                    duration: 15,
-                                    width: 566,
-                                    height: 1080,
-                                    caption: 'Part 3'
+                            //     });
+                            // }
+                            // if (part3) {
+                            //     api.sendVideo({
+                            //         chat_id: message.chat.id,
+                            //         video: path + '/' + 'part3.mp4',
+                            //         duration: 15,
+                            //         width: 566,
+                            //         height: 1080,
+                            //         caption: 'Part 3'
 
-                                });
-                            }
-                            if (part4) {
-                                api.sendVideo({
-                                    chat_id: message.chat.id,
-                                    video: path + '/' + 'part4.mp4',
-                                    duration: 15,
-                                    width: 566,
-                                    height: 1080,
-                                    caption: 'Part 4'
+                            //     });
+                            // }
+                            // if (part4) {
+                            //     api.sendVideo({
+                            //         chat_id: message.chat.id,
+                            //         video: path + '/' + 'part4.mp4',
+                            //         duration: 15,
+                            //         width: 566,
+                            //         height: 1080,
+                            //         caption: 'Part 4'
 
-                                });
-                            }
+                            //     });
+                            // }
                            
-                            	 api.sendVideo({
+                            	 if(ls){
+                            	 	api.sendVideo({
                                     chat_id: message.chat.id,
                                     video: path + '/' + 'out.mp4',
                                     duration: 60,
@@ -155,6 +157,7 @@ api.on('message', function(message) {
                                     caption: '1 Minute Full Video'
 
                                 });
+                            	 }
                            
                         };
 
