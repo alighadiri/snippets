@@ -91,10 +91,10 @@ api.on('message', function(message) {
                     if (res) {
 
                         var ls = sync('ffmpeg', ['-loop', '1', '-i', path + '/' + 'photo.jpg', '-i', path + '/' + 'audio.mp3', '-c:v', 'libx264', '-t', '60', '-pix_fmt', 'yuv420p', '-vf', 'scale=566:1080', '-y', path + '/' + 'out.mp4']);
-                        // var part1 = sync('ffmpeg', ['-i', path + '/' + 'out.mp4', '-ss', '0', '-t', '15', path + '/' + 'part1.mp4']);
-                        // var part2 = sync('ffmpeg', ['-i', path + '/' + 'out.mp4', '-ss', '15', '-t', '15', path + '/' + 'part2.mp4']);
-                        // var part3 = sync('ffmpeg', ['-i', path + '/' + 'out.mp4', '-ss', '30', '-t', '15', path + '/' + 'part3.mp4']);
-                        // var part4 = sync('ffmpeg', ['-i', path + '/' + 'out.mp4', '-ss', '45', '-t', '15', path + '/' + 'part4.mp4']);
+                        var part1 = sync('ffmpeg', ['-i', path + '/' + 'out.mp4', '-ss', '0', '-t', '15', path + '/' + 'part1.mp4']);
+                        var part2 = sync('ffmpeg', ['-i', path + '/' + 'out.mp4', '-ss', '15', '-t', '15', path + '/' + 'part2.mp4']);
+                        var part3 = sync('ffmpeg', ['-i', path + '/' + 'out.mp4', '-ss', '30', '-t', '15', path + '/' + 'part3.mp4']);
+                        var part4 = sync('ffmpeg', ['-i', path + '/' + 'out.mp4', '-ss', '45', '-t', '15', path + '/' + 'part4.mp4']);
                         api.sendMessage({
                             chat_id: message.chat.id,
                             parse_mode: 'Markdown',
@@ -102,50 +102,50 @@ api.on('message', function(message) {
                         });
 
                         var send = function() {
-                            // if (part1) {
-                            //     api.sendVideo({
-                            //         chat_id: message.chat.id,
-                            //         video: path + '/' + 'part1.mp4',
-                            //         duration: 15,
-                            //         width: 566,
-                            //         height: 1080,
-                            //         caption: 'Part 1'
+                            if (part1) {
+                                api.sendVideo({
+                                    chat_id: message.chat.id,
+                                    video: path + '/' + 'part1.mp4',
+                                    duration: 15,
+                                    width: 566,
+                                    height: 1080,
+                                    caption: 'Part 1'
 
-                            //     });
-                            // }
-                            // if (part2) {
-                            //     api.sendVideo({
-                            //         chat_id: message.chat.id,
-                            //         video: path + '/' + 'part2.mp4',
-                            //         duration: 15,
-                            //         width: 566,
-                            //         height: 1080,
-                            //         caption: 'Part 2'
+                                });
+                            }
+                            if (part2) {
+                                api.sendVideo({
+                                    chat_id: message.chat.id,
+                                    video: path + '/' + 'part2.mp4',
+                                    duration: 15,
+                                    width: 566,
+                                    height: 1080,
+                                    caption: 'Part 2'
 
-                            //     });
-                            // }
-                            // if (part3) {
-                            //     api.sendVideo({
-                            //         chat_id: message.chat.id,
-                            //         video: path + '/' + 'part3.mp4',
-                            //         duration: 15,
-                            //         width: 566,
-                            //         height: 1080,
-                            //         caption: 'Part 3'
+                                });
+                            }
+                            if (part3) {
+                                api.sendVideo({
+                                    chat_id: message.chat.id,
+                                    video: path + '/' + 'part3.mp4',
+                                    duration: 15,
+                                    width: 566,
+                                    height: 1080,
+                                    caption: 'Part 3'
 
-                            //     });
-                            // }
-                            // if (part4) {
-                            //     api.sendVideo({
-                            //         chat_id: message.chat.id,
-                            //         video: path + '/' + 'part4.mp4',
-                            //         duration: 15,
-                            //         width: 566,
-                            //         height: 1080,
-                            //         caption: 'Part 4'
+                                });
+                            }
+                            if (part4) {
+                                api.sendVideo({
+                                    chat_id: message.chat.id,
+                                    video: path + '/' + 'part4.mp4',
+                                    duration: 15,
+                                    width: 566,
+                                    height: 1080,
+                                    caption: 'Part 4'
 
-                            //     });
-                            // }
+                                });
+                            }
                            
                             	 if(ls){
                             	 	api.sendVideo({
