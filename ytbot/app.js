@@ -29,7 +29,7 @@ api.on('message', function(message) {
                 var output = path.resolve(__dirname, filename);
                 var video = ytdl(url);
                 video.pipe(fs.createWriteStream(output));
-                video.on('end', () => {
+                video.on('end', function() {
                     console.log('DONE!');
                     api.sendMessage({
                         chat_id: message.chat.id,
