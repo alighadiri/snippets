@@ -1,0 +1,19 @@
+
+<div ng-if="data.isAuth">
+    <div ng-class="{'right':data.msgFrom==conv.from,'left':data.msgFrom!=conv.from}" class="conv" ng-repeat="conv in data.allMessages">
+        <p>{{conv.msg}} </p>
+        <span>{{conv.date}}</span>
+    </div>
+    <div class="clearfix"></div>
+    <div class="text-input">
+        <textarea ng-model="data.msgText" name="msgText"></textarea>
+        <button ng-click="data.sendMsg()"></button>
+    </div>
+</div>
+<div class="login" ng-if="!data.isAuth">
+    <div class="col-xs-12">
+        <p>Enter your username</p>
+        <input class="form-control" type="text" ng-model="data.user">
+        <button ng-click="data.login()">Login</button>
+    </div>
+</div>

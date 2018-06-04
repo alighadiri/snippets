@@ -1,0 +1,98 @@
+body{
+	margin: 0;
+	background: url('images/bg.jpg');
+	padding-top: 30px;
+	padding-bottom: 120px;
+	display: flex;
+	flex-direction: column-reverse;
+	overflow: auto;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.conv{
+	max-width: 90%;
+	border-radius: 8px;
+	padding: 10px 15px;
+	color:#000;
+	font-size: 15px;
+box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+margin-top: 5px;
+margin-bottom: 5px;
+clear: both;
+}
+
+.conv span{
+	font-size: 12px;
+	color:#BBB;
+}
+.conv p{
+	margin:0;
+}
+
+.conv.left{
+background: #FFF;
+float: left;
+margin-left: 15px;
+}
+
+.conv.right{
+background: #effdde;
+float: right;
+margin-right: 15px;
+
+}
+
+.text-input{
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background: #FFF;
+}
+
+.text-input textarea{
+	border:none;
+	outline: none;
+	width: calc(100% - 50px);
+	padding: 15px;
+	height: 100px;
+}
+
+.text-input button{
+	width: 50px;
+	height: 100px;
+	float: right;
+	background: #FFF;
+	border:none;
+	outline: none;
+	background: url('images/send.png') no-repeat;
+	background-size: 30px 30px;
+	background-position: center bottom;
+}
+
+.login{
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: #FFF;
+	padding-top: 100px;
+	text-align: center;
+
+}
+.login input{
+	height: 40px;
+}
+.login button{
+	display: block;
+	width: 100%;
+	margin-top: 10px;
+	background: #00adb5;
+	color: #FFF;
+	border:none;
+	outline: none;
+	padding: 10px 0;
+	border-radius: 6px;
+}
