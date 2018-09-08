@@ -1,5 +1,9 @@
 var telegram = require('telegram-bot-api');
 
+var Nightmare = require('nightmare'),
+    nightmare = Nightmare();
+var email = require('emailjs');
+const cheerio = require("cheerio");
 var api = new telegram({
     token: '607625759:AAE4i6ie0Yi9mhvdfJti60DVO8cxlKrnKLc',
     updates: {
@@ -19,11 +23,6 @@ api.on('message', function(message) {
 
     });
 
-
-    var Nightmare = require('nightmare'),
-        nightmare = Nightmare({ 'show': true });
-    var email = require('emailjs');
-    const cheerio = require("cheerio");
     nightmare.goto('https://www.sepehr361.com/')
         .type('#firstPageSource', 'istanbul')
         .click('#mainSearchPanel')
@@ -46,7 +45,7 @@ api.on('message', function(message) {
                 var year = $(this).parent().data('year');
                 date = date.replace(price, '');
                 if ((parseInt(date, 10) < 32) && (parseInt(date, 10) > 22) && (month == 6)) {
-                    // thejson.push('date:' + year + '/' + month + '/' + date, 'price: ' + price);
+                    thejson.push('date:' + year + '/' + month + '/' + date, 'price: ' + price);
                     api.sendMessage({
                         chat_id: message.chat.id,
                         parse_mode: 'Markdown',
