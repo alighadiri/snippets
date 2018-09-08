@@ -50,8 +50,7 @@ api.on('message', function(message) {
                     api.sendMessage({
                         chat_id: message.chat.id,
                         parse_mode: 'Markdown',
-                        text: 'date:' + year + '/' + month + '/' + date,
-                        'price: ' + price
+                        text: 'date:' + year + '/' + month + '/' + date + ' - price: ' + price
                     });
                     // thejson.push('<tr style="border:1px solid #CCC;"><td style="border:1px solid #CCC;" width="250">' + date + '</td><td width="250" style="border:1px solid #CCC;">' + price + '</td></tr>');
                 }
