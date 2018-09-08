@@ -45,7 +45,7 @@ api.on('message', function(message) {
                 var year = $(this).parent().data('year');
                 date = date.replace(price, '');
                 if ((parseInt(date, 10) < 32) && (parseInt(date, 10) > 22) && (month == 6)) {
-                    thejson.push('date:' + year + '/' + month + '/' + date, 'price: ' + price);
+                    console.log('date:' + year + '/' + month + '/' + date, 'price: ' + price);
                     api.sendMessage({
                         chat_id: message.chat.id,
                         parse_mode: 'Markdown',
