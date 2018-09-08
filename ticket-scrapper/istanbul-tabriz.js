@@ -1,9 +1,6 @@
 var telegram = require('telegram-bot-api');
 
-var Nightmare = require('nightmare'),
-    nightmare = Nightmare();
-var email = require('emailjs');
-const cheerio = require("cheerio");
+
 var api = new telegram({
     token: '607625759:AAE4i6ie0Yi9mhvdfJti60DVO8cxlKrnKLc',
     updates: {
@@ -22,6 +19,10 @@ api.on('message', function(message) {
         text: 'Please Wait'
 
     });
+
+var Nightmare = require('nightmare'),
+    nightmare = Nightmare();
+var cheerio = require("cheerio");
 
     nightmare.goto('https://www.sepehr361.com/')
         .type('#firstPageSource', 'istanbul')
