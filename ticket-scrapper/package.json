@@ -6,7 +6,8 @@
   "author": "Mamo",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
+    "emailjs": "^1.0.11",
     "nightmare": "^2.10.0",
-    "emailjs": "^1.0.11"
+    "telegram-bot-api": "^1.2.1"
   }
 }

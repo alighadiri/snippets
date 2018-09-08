@@ -1,6 +1,6 @@
 function intervalFunc() {
     var Nightmare = require('nightmare'),
-        nightmare = Nightmare();
+        nightmare = Nightmare({show:true});
     var email = require('emailjs');
     var server = email.server.connect({
         user: "amlenders.contact@gmail.com",
@@ -9,7 +9,7 @@ function intervalFunc() {
         ssl: true
     });
     const cheerio = require("cheerio");
-    nightmare.goto('https://sepehr360.com')
+    nightmare.goto('https://google.com')
         .type('#firstPageSource', 'تهران')
         .type('#firstPageDestination', 'استانبول')
         .wait(2000)
