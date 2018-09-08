@@ -21,7 +21,7 @@ api.on('message', function(message) {
 
 
     var Nightmare = require('nightmare'),
-        nightmare = Nightmare({'show':true});
+        nightmare = Nightmare({ 'show': true });
     var email = require('emailjs');
     const cheerio = require("cheerio");
     nightmare.goto('https://www.sepehr361.com/')
@@ -46,18 +46,19 @@ api.on('message', function(message) {
                 var year = $(this).parent().data('year');
                 date = date.replace(price, '');
                 if ((parseInt(date, 10) < 32) && (parseInt(date, 10) > 22) && (month == 6)) {
-                    thejson.push('date:' + year + '/' + month + '/' + date, 'price: ' + price);
+                    // thejson.push('date:' + year + '/' + month + '/' + date, 'price: ' + price);
+                    api.sendMessage({
+                        chat_id: message.chat.id,
+                        parse_mode: 'Markdown',
+                        text: 'date:' + year + '/' + month + '/' + date,
+                        'price: ' + price
+                    });
                     // thejson.push('<tr style="border:1px solid #CCC;"><td style="border:1px solid #CCC;" width="250">' + date + '</td><td width="250" style="border:1px solid #CCC;">' + price + '</td></tr>');
                 }
             });
 
 
-            api.sendMessage({
-                chat_id: message.chat.id,
-                parse_mode: 'Markdown',
-                text: thejson
 
-            });
             // var message = {
             //     text: "Latest Ticket Prices",
             //     from: "you <username@your-email.com>",
