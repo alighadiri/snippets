@@ -1,7 +1,14 @@
 var path = require('path');
 var fs = require('fs');
 var ytdl = require('youtube-dl');
-var dlurl = 'https://www.youtube.com/playlist?list=' + 'PLQQ6twmUg6FZf2EK4cVCMKtR_W58xt97L';
+const args = process.argv
+    .slice(2)
+    .map(arg => arg.split('='))
+    .reduce((args, [value, key]) => {
+        args[value] = key;
+        return args;
+    }, {});
+var dlurl = 'https://www.youtube.com/playlist?list=' + args.list;
 function playlist(url) {
     'use strict';
     var video = ytdl(url);
